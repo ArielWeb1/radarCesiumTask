@@ -10,5 +10,6 @@ export class CesiumDirective implements OnInit {
   ngOnInit() {
     const viewer = new Cesium.Viewer(this.el.nativeElement);
   }
-
 }
+
+
