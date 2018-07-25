@@ -12,12 +12,12 @@ const pointsOfRadar = [
     { id: 10, longitude: -3.7037901999, latitude: 40.4167754}
 ];
 // to client
-//const radarImageURL = https://image.flaticon.com/icons/svg/186/186078.svg;
-// const bollboard = {
+// const radarImageURL = 'https://image.flaticon.com/icons/svg/186/186078.svg';
+// const billboard = {
 //     image: radarImageURL,
 //     width: 30,
 //     heigth: 40
-// }
+// };
 // const Points = [
 //     {
 //         id: '1',

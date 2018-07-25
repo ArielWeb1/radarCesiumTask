@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 var app = express();
 var http = require('http');
 
@@ -18,7 +18,7 @@ const pointsOfRadar = [
     { id: 7, longitude: 2.1734035, latitude: 41.3850639},
     { id: 8, longitude: -2.2426305, latitude: 53.4807593},
     { id: 9, longitude: -3.7037901999, latitude: 40.4167754},
-    { id: 10, longitude: -3.7037901999, latitude: 40.4167754}
+    { id: 10, longitude: -1.1037901999, latitude: 42.7167754}
 ];
 
 server.listen(port, () => {
@@ -29,29 +29,38 @@ app.get('/', (req, res) => res.send("Hello"));
 
 io.on('connection', (socket) => {
     console.log('user connected');
-    socket.emit('hello', {
-        // greeting: 'Hello you'
+    socket.emit('hello', pointsOfRadar,{
+    // socket.send(JSON.stringify(pointsOfRadar),{
     });
+
+    // socket.on('message', (msg) => {
+    //     socket.broadcast.emit('new massage', {
+    //         message: msg
+    //     });
+    //     console.log('The message:' + msg);
+    // });
 
     socket.on('disconnect', () => {
         socket.broadcast.emit('user disconnect', {});
     });
 });
+// app.use(express.static(require('path').join(__dirname, "public")));
 
 let timerId = null,
     sockets = new Set();
+
 app.use(express.static(__dirname + '/dist'));
 
-io.on('connection', socket => {
+io.on('connection', (socket) => {
 
     sockets.add(socket);
     console.log(`Socket ${socket.id} added`);
 
-    if (!timerId) {
-        startTimer();
-    }
+    // if (!timerId) {
+    //     startTimer();
+    // }
 
-    socket.on('clientdata', data => {
+    socket.on('clientdata', (data) => {
         console.log(data);
     });
 
@@ -63,23 +72,23 @@ io.on('connection', socket => {
 
 });
 
-function startTimer() {
-
-    timerId = setInterval(() => {
-        if (!sockets.size) {
-            clearInterval(timerId);
-            timerId = null;
-            console.log(`Timer stopped`);
-        }
-        let value = ((Math.random() * 50) + 1).toFixed(2);
-
-        for (const s of sockets) {
-            console.log(`Emitting value: ${value}`);
-            s.emit('data', {data: value});
-        }
-
-    }, 2000);
-}
+// function startTimer() {
+//
+//     timerId = setInterval(() => {
+//         if (!sockets.size) {
+//             clearInterval(timerId);
+//             timerId = null;
+//             console.log(`Timer stopped`);
+//         }
+//         let value = ((Math.random() * 50) + 1).toFixed(2);
+//
+//         for (const s of sockets) {
+//             console.log(`Emitting value: ${value}`);
+//             s.emit('data', {data: value});
+//         }
+//
+//     }, 2000);
+// }
 
 server.listen(3000);
 console.log('Visit http://localhost:3000 in browser');
