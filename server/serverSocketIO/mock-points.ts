@@ -1,3 +1,4 @@
+import * as Cesium from 'cesium/Build/Cesium/Cesium.js';
 
 const pointsOfRadar = [
     { id: 1, longitude: 34.7817676, latitude: 32.0852999},
@@ -16,13 +17,13 @@ const pointsOfRadar = [
 // const billboard = {
 //     image: radarImageURL,
 //     width: 30,
-//     heigth: 40
+//     height: 40
 // };
 // const Points = [
 //     {
 //         id: '1',
 //         entity: {
-//             position: cesium.Cartesian3.fromDegrees(34.7817676, 32.0852999),
+//             position: Cesium.Cartesian3.fromDegrees(34.7817676, 32.0852999),
 //             billboard: billboard,
 //         }
 //     },

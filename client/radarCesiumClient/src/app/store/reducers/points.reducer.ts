@@ -1,29 +1,26 @@
 import {RadarEntity} from "../../radarPoint";
 import * as RadarPointAction from "../actions/points.action";
 
-export type Action = RadarPointAction.ALL;
+export type Actions = RadarPointAction.ALL;
 
-export interface RadarState {
-  status: string;
-}
+const InitState: RadarEntity[] = [];
 
-const InitState: RadarState = {
-  status: 'none'
-};
-
-export function RadarReducer(state = InitState, action: Action) {
+export function RadarReducer(state: RadarEntity[] = InitState, action: Actions) {
+// export function RadarReducer(state = InitState, action: Action) {
   console.log(state, action);
 
   switch (action.type) {
 
     case RadarPointAction.POINTS_LOADED:
+      console.log(action.payload);
       return {...state};
 
     case RadarPointAction.POINT_ADDED:
-      return {...state};
+      return action.payload;
 
     case RadarPointAction.POINT_UPDATED:
-      return {...state};
+      return [...state, action.payload];
+      // return {...state};
 
     default:
       return state;

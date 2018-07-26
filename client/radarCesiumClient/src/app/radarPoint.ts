@@ -1,6 +1,12 @@
 export interface RadarEntity {
   id: string,
-  billboard: any,
   longitude: number,
-  latitude: number
+  latitude: number,
+  billboard: {
+    image:string,
+    width: number;
+    height: number;
+  }
 }
+
+

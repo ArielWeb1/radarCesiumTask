@@ -1,7 +1,7 @@
 import {Action} from '@ngrx/store';
 import {RadarEntity} from "../../radarPoint";
 
-export const POINTS_LOADED = '[Points] Listed';
+export const POINTS_LOADED = '[Points] Loaded';
 
 export const POINT_ADDED = '[Points] Added';
 
@@ -16,17 +16,15 @@ export class PointsLoaded implements Action {
     this.payload = null;
   }
 }
-
 export class PointsAdded implements Action {
   public type: string;
-  public payload: RadarEntity;
+  public payload: RadarEntity[];
 
-  constructor(payload: RadarEntity) {
+  constructor(payload: RadarEntity[]) {
     this.type = POINT_ADDED;
     this.payload = payload;
   };
 }
-
 export class PointsUpdated implements Action {
   public type: string;
   public payload: RadarEntity;
@@ -40,7 +38,7 @@ export class PointsUpdated implements Action {
 // export class PointsLoaded implements Action {
 //   readonly type = POINTS_LOADED;
 //
-//   constructor(public payload?: { [id: string]: RadarPoint }) {
+//   constructor(public payload: RadarPoint) {
 //     this.payload = payload;
 //   };
 // }
@@ -48,7 +46,7 @@ export class PointsUpdated implements Action {
 // export class PointsAdded implements Action {
 //   readonly type = POINT_ADDED;
 //
-//   constructor(public payload?: { [id: string]: RadarPoint }) {
+//   constructor(public payload: RadarPoint) {
 //     this.payload = payload;
 //   };
 // }
@@ -56,7 +54,7 @@ export class PointsUpdated implements Action {
 // export class PointsUpdated implements Action {
 //   readonly type = POINT_UPDATED;
 //
-//   constructor(public payload?: { [id: string]: RadarPoint }) {
+//   constructor(public payload: RadarPoint) {
 //     this.payload = payload;
 //   };
 // }
