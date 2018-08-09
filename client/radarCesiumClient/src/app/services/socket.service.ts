@@ -5,7 +5,7 @@ import {Store} from '@ngrx/store';
 import {RadarEntity} from "../radarPoint";
 import {AppState, AppStatePlolyoine} from "../store/app.state";
 import * as actionPoint from "../store/actions/points.action";
-import  * as actionUpdatePoint from "../store/actions/updatePoints.action";
+import * as actionUpdatePoint from "../store/actions/updatePoints.action";
 import {Server} from "socket.io";
 import {PolylinePoint} from "../polylinePoint";
 
@@ -32,10 +32,12 @@ export class SocketService {
     this.socket = socketIo(SERVER_URL);
     this.socket.on('hello', (data) => {
       this.callServer = this.store.dispatch(new actionPoint.PointsAdded(data));
+      console.log(data);
     });
 
     this.socket.on('change', (data) => {
       this.callServer = this.updateStore.dispatch(new actionUpdatePoint.PolylinePointsAdded(data));
+      console.log(data);
     });
   }
 }

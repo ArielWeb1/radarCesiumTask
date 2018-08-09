@@ -48,9 +48,7 @@ app.get('/', (req, res) => res.send("Hello"));
 
 io.on('connection', (socket) => {
     console.log('user connected');
-    socket.emit('hello', pointsOfRadar, {
-        // socket.send(JSON.stringify(pointsOfRadar),{
-    });
+    socket.emit('hello', pointsOfRadar, {});
 
     // socket.on('message', (msg) => {
     //     socket.broadcast.emit('new massage', {
@@ -90,21 +88,23 @@ io.on('connection', (socket) => {
 
     setInterval(() => {
         socket.emit('change', createPolyline(), {});
+        console.log( 'print', createPolyline());
     }, 10000);
 });
 
 function createPolyline() {
-    endLatitude = 35 + Math.random();
-    endLongitude = 32 + Math.random();
 
-    pointsOfRadar.forEach(radar => {
-        let polyline = {
+     polyline = pointsOfRadar.map( radar => {
+        endLatitude = 35 + Math.random();
+        endLongitude = 32 + Math.random();
+        return {
+            id: radar.id,
             positions: [endLatitude, endLongitude, 10000.0, radar.longitude, radar.latitude, 0.0],
-            width: 5,
-        };
-        console.log(polyline);
-        return polyline;
-    })
+            width: 5
+        }
+    });
+    // console.log(JSON.stringify(polyline));
+    return polyline;
 
     // pointsOfRadar.forEach(radar => {
     //     let polyline = {

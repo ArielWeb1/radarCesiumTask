@@ -1,8 +1,7 @@
 export interface PolylinePoint {
   id: string,
-  polyline: {
+  // polyline: {
     positions: number[],
     width: number,
-    material: {}
-  }
+  // }
 }
