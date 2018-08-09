@@ -3,7 +3,7 @@ export interface RadarEntity {
   longitude: number,
   latitude: number,
   billboard: {
-    image:string,
+    image: string,
     width: number;
     height: number;
   }

@@ -3,9 +3,11 @@ import * as socketIo from 'socket.io-client';
 import {Observable} from "rxjs/index";
 import {Store} from '@ngrx/store';
 import {RadarEntity} from "../radarPoint";
-import {AppState} from "../store/app.state";
+import {AppState, AppStatePlolyoine} from "../store/app.state";
 import * as actionPoint from "../store/actions/points.action";
+import  * as actionUpdatePoint from "../store/actions/updatePoints.action";
 import {Server} from "socket.io";
+import {PolylinePoint} from "../polylinePoint";
 
 const SERVER_URL = 'http://localhost:3000';
 
@@ -15,27 +17,25 @@ const SERVER_URL = 'http://localhost:3000';
 
 export class SocketService {
   radar: Observable<RadarEntity[]>;
-  socket:Server;
+  newRadar: Observable<PolylinePoint[]>;//
+  socket: Server;
 
   private callServer;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private updateStore: Store<AppStatePlolyoine>) {
     this.radar = store.select('radar');
+    this.newRadar = updateStore.select('newRadar');//
+    console.log(this.newRadar);
   }
 
   connect() {
     this.socket = socketIo(SERVER_URL);
     this.socket.on('hello', (data) => {
       this.callServer = this.store.dispatch(new actionPoint.PointsAdded(data));
-      // console.log(this.callServer);
-      // return data;
+    });
+
+    this.socket.on('change', (data) => {
+      this.callServer = this.updateStore.dispatch(new actionUpdatePoint.PolylinePointsAdded(data));
     });
   }
-
-  // loadPoints() {
-  //   // this.store.select('RadarReducer').subscribe((data: AppState) => this.state = data )
-  //   this.radar = this.store.select('radar');
-  //   return this.radar;
-  // }
-
 }

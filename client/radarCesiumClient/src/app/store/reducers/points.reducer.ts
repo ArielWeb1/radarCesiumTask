@@ -6,7 +6,7 @@ export type Actions = RadarPointAction.ALL;
 const InitState: RadarEntity[] = [];
 
 export function RadarReducer(state: RadarEntity[] = InitState, action: Actions) {
-// export function RadarReducer(state = InitState, action: Action) {
+
   console.log(state, action);
 
   switch (action.type) {
@@ -20,7 +20,6 @@ export function RadarReducer(state: RadarEntity[] = InitState, action: Actions) 
 
     case RadarPointAction.POINT_UPDATED:
       return [...state, action.payload];
-      // return {...state};
 
     default:
       return state;

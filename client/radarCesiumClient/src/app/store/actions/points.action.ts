@@ -35,29 +35,5 @@ export class PointsUpdated implements Action {
   };
 }
 
-// export class PointsLoaded implements Action {
-//   readonly type = POINTS_LOADED;
-//
-//   constructor(public payload: RadarPoint) {
-//     this.payload = payload;
-//   };
-// }
-//
-// export class PointsAdded implements Action {
-//   readonly type = POINT_ADDED;
-//
-//   constructor(public payload: RadarPoint) {
-//     this.payload = payload;
-//   };
-// }
-//
-// export class PointsUpdated implements Action {
-//   readonly type = POINT_UPDATED;
-//
-//   constructor(public payload: RadarPoint) {
-//     this.payload = payload;
-//   };
-// }
-
 export type ALL = PointsLoaded | PointsAdded | PointsUpdated ;
 

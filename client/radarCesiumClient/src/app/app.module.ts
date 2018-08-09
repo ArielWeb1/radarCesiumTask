@@ -9,6 +9,9 @@ import {EffectsModule} from "@ngrx/effects";
 import {RadarReducer} from "./store/reducers/points.reducer";
 import {AuthEffect} from "./store/effects/points.effect";
 
+import {PolylineReducer} from "./store/reducers/updatePoints.reducer";
+import {UpdateEffect} from "./store/effects/updatePoints.effect";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +20,10 @@ import {AuthEffect} from "./store/effects/points.effect";
   imports: [
     BrowserModule,
     StoreModule.forRoot({
-      radar: RadarReducer
+      radar: RadarReducer,
+      newRadar: PolylineReducer
     }),
-    EffectsModule.forRoot([AuthEffect])
+    EffectsModule.forRoot([AuthEffect, UpdateEffect])
   ],
   providers: [],
   bootstrap: [AppComponent]
