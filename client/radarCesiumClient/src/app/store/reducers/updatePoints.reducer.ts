@@ -17,6 +17,9 @@ export function PolylineReducer(state: PolylinePoint[] = InitState, action: Acti
 
     case PlolylinePointAction.POLYLINEPOINT_ADDED:
       return action.payload;
+      // return state.map(item => {
+      //   return item.id == action.payload.id ? Object.assign({}, item, {positions: action.payload.position}): item;
+      // });
 
     case PlolylinePointAction.POLYLINEPOINT_UPDATED:
       return [...state, action.payload];

@@ -27,9 +27,9 @@ export class PolylinePointsAdded implements Action {
 }
 export class PolylinePointsUpdated implements Action {
   public type: string;
-  public payload: PolylinePoint;
+  public payload: PolylinePoint[];
 
-  constructor(payload: PolylinePoint) {
+  constructor(payload: PolylinePoint[]) {
     this.type = POLYLINEPOINT_UPDATED;
     this.payload = payload;
   };

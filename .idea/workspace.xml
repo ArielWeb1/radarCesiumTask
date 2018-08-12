@@ -4,8 +4,9 @@
     <list default="true" id="2fc20b6b-80f7-4a7f-9559-eea745c1b83a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/radarCesiumClient/src/app/polylinePoint.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/radarCesiumClient/src/app/polylinePoint.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/serverSocketIO/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/serverSocketIO/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="updatePoints.effect.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts">
+      <file leaf-file-name="socket.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="327">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -35,8 +36,8 @@
       <file leaf-file-name="polylinePoint.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/polylinePoint.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+            <state relative-caret-position="85">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -53,25 +54,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="points.action.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/points.action.ts">
+      <file leaf-file-name="updatePoints.effect.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="-30">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="points.reducer.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/points.reducer.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,8 +69,8 @@
       <file leaf-file-name="updatePoints.action.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="374">
+              <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -89,35 +78,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socket.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts">
+      <file leaf-file-name="updatePoints.reducer.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="374">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/serverSocketIO/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+            <state relative-caret-position="323">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
-                <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+                <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="radarPoint.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/radarPoint.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -153,16 +133,16 @@
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/services/cesium-viewer.service.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/points.action.ts" />
-        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/points.reducer.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/radarPoint.ts" />
-        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/cesium.directive.ts" />
-        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/app.state.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/points.effect.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/polylinePoint.ts" />
+        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts" />
+        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/points.reducer.ts" />
+        <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts" />
         <option value="$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts" />
         <option value="$PROJECT_DIR$/server/serverSocketIO/index.js" />
       </list>
@@ -184,7 +164,7 @@
       <path value="$PROJECT_DIR$/server/serverSocketIO/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-1928" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -195,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,7 +266,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,12 +312,13 @@
       <workItem from="1532496419210" duration="34991000" />
       <workItem from="1532583206816" duration="44344000" />
       <workItem from="1533794745412" duration="26399000" />
-      <workItem from="1533825508410" duration="3937000" />
+      <workItem from="1533825508410" duration="4497000" />
+      <workItem from="1534052342568" duration="24870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136784000" />
+    <option name="totallyTimeSpent" value="162214000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -350,6 +331,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="0" />
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.17913593" />
@@ -359,7 +341,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="3" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.332244" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.2211329" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -378,12 +360,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/radarPoint.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/serverSocketIO/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1700">
           <caret line="100" column="11" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="11" />
           <folding>
-            <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+            <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
           </folding>
         </state>
       </provider>
@@ -460,7 +449,7 @@
         <state relative-caret-position="51">
           <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
-            <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+            <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
           </folding>
         </state>
       </provider>
@@ -538,7 +527,7 @@
         <state relative-caret-position="153">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+            <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
           </folding>
         </state>
       </provider>
@@ -579,7 +568,7 @@
         <state relative-caret-position="680">
           <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
-            <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+            <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
           </folding>
         </state>
       </provider>
@@ -693,39 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/cesium-viewer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/app.state.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/main.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -739,24 +695,24 @@
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/radarPoint.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts">
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/app.state.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="136">
+          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/points.reducer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
@@ -766,29 +722,39 @@
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/points.action.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts">
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/socket.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="327">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/serverSocketIO/index.js">
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/reducers/updatePoints.reducer.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        <state relative-caret-position="374">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <marker date="1533828840113" expanded="true" signature="2568:2780" ph="..." />
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/services/cesium-viewer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,19 +769,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/actions/updatePoints.action.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/polylinePoint.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="32" lean-forward="true" selection-start-column="32" selection-end-column="32" />
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/radarCesiumClient/src/app/store/effects/updatePoints.effect.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="-30">
           <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/serverSocketIO/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <marker date="1534085496756" expanded="true" signature="2996:3207" ph="..." />
           </folding>
         </state>
       </provider>

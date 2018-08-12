@@ -18,26 +18,34 @@ const billboard = {
     height: 30
 };
 
-// const polyline = {
-//     positions: Cesium.Cartesian3.fromDegreesArrayHeights([endLatitude, endLongitude, 10000.0, pointsOfRadar[id].longitude, startLongitude, 0.0]),
-//     width: 5,
-//     material : new Cesium.PolylineGlowMaterialProperty({
-//         glowPower : 0.2,
-//         color : Cesium.Color.YELLOW
-//     })
-// };
+let polyline = [{}];
+
+const radius = 10;
+
+// const pointsOfRadar = [
+//     {id: 1, longitude: 34.7817676, latitude: 32.0852999, billboard: billboard},
+//     {id: 2, longitude: -0.1277583, latitude: 51.5073509, billboard: billboard},
+//     {id: 3, longitude: 2.3522219, latitude: 48.856614, billboard: billboard},
+//     {id: 4, longitude: -73.99, latitude: 40.7327753, billboard: billboard},
+//     {id: 5, longitude: 12.4853655, latitude: 41.8899999, billboard: billboard},
+//     {id: 6, longitude: 139.6917064, latitude: 35.6894875, billboard: billboard},
+//     {id: 7, longitude: 2.1734035, latitude: 41.3850639, billboard: billboard},
+//     {id: 8, longitude: -2.2426305, latitude: 53.4807593, billboard: billboard},
+//     {id: 9, longitude: -3.7037901999, latitude: 40.4167754, billboard: billboard},
+//     {id: 10, longitude: -1.1037901999, latitude: 42.7167754, billboard: billboard}
+// ];
 
 const pointsOfRadar = [
-    {id: 1, longitude: 34.7817676, latitude: 32.0852999, billboard: billboard},
-    {id: 2, longitude: -0.1277583, latitude: 51.5073509, billboard: billboard},
-    {id: 3, longitude: 2.3522219, latitude: 48.856614, billboard: billboard},
-    {id: 4, longitude: -73.99, latitude: 40.7327753, billboard: billboard},
-    {id: 5, longitude: 12.4853655, latitude: 41.8899999, billboard: billboard},
-    {id: 6, longitude: 139.6917064, latitude: 35.6894875, billboard: billboard},
-    {id: 7, longitude: 2.1734035, latitude: 41.3850639, billboard: billboard},
-    {id: 8, longitude: -2.2426305, latitude: 53.4807593, billboard: billboard},
-    {id: 9, longitude: -3.7037901999, latitude: 40.4167754, billboard: billboard},
-    {id: 10, longitude: -1.1037901999, latitude: 42.7167754, billboard: billboard}
+    {id: 1, longitude: 0, latitude: 36, billboard: billboard},
+    {id: 2, longitude: 36, latitude: 72, billboard: billboard},
+    {id: 3, longitude: 72, latitude: 108, billboard: billboard},
+    {id: 4, longitude: 108, latitude: 144, billboard: billboard},
+    {id: 5, longitude: 144, latitude: 180, billboard: billboard},
+    {id: 6, longitude: 180, latitude: 216, billboard: billboard},
+    {id: 7, longitude: 216, latitude: 252, billboard: billboard},
+    {id: 8, longitude: 252, latitude: 288, billboard: billboard},
+    {id: 9, longitude: 288, latitude: 324, billboard: billboard},
+    {id: 10, longitude: 324, latitude: 360, billboard: billboard}
 ];
 
 server.listen(port, () => {
@@ -88,15 +96,18 @@ io.on('connection', (socket) => {
 
     setInterval(() => {
         socket.emit('change', createPolyline(), {});
-        console.log( 'print', createPolyline());
+        console.log('print', createPolyline());
     }, 10000);
 });
 
 function createPolyline() {
+    polyline = pointsOfRadar.map(radar => {
+        // endLatitude = 135 + 10*Math.random();
+        // endLongitude = 132 + 10*Math.random();
+        let angle = Math.PI * 2;
+        endLatitude = endLatitude + Math.cos(angle) * radius;
+        endLongitude = endLongitude + Math.sin(angle) * radius;
 
-     polyline = pointsOfRadar.map( radar => {
-        endLatitude = 35 + Math.random();
-        endLongitude = 32 + Math.random();
         return {
             id: radar.id,
             positions: [endLatitude, endLongitude, 10000.0, radar.longitude, radar.latitude, 0.0],
