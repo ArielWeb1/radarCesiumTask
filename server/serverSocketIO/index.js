@@ -1,6 +1,6 @@
 const express = require('express');
-var app = express();
-var http = require('http');
+let app = express();
+let http = require('http');
 
 const server = http.Server(app);
 socketIO = require('socket.io');
@@ -8,8 +8,8 @@ socketIO = require('socket.io');
 const io = socketIO(server);
 const port = process.env.PORT || 3000;
 
-let endLongitude = 1;
-let endLatitude = 1;
+let endLongitude = 0;
+let endLatitude = 0;
 
 const radarImageURL = 'https://image.flaticon.com/icons/svg/186/186078.svg';
 const billboard = {
@@ -19,33 +19,19 @@ const billboard = {
 };
 
 let polyline = [{}];
-
 const radius = 10;
 
-// const pointsOfRadar = [
-//     {id: 1, longitude: 34.7817676, latitude: 32.0852999, billboard: billboard},
-//     {id: 2, longitude: -0.1277583, latitude: 51.5073509, billboard: billboard},
-//     {id: 3, longitude: 2.3522219, latitude: 48.856614, billboard: billboard},
-//     {id: 4, longitude: -73.99, latitude: 40.7327753, billboard: billboard},
-//     {id: 5, longitude: 12.4853655, latitude: 41.8899999, billboard: billboard},
-//     {id: 6, longitude: 139.6917064, latitude: 35.6894875, billboard: billboard},
-//     {id: 7, longitude: 2.1734035, latitude: 41.3850639, billboard: billboard},
-//     {id: 8, longitude: -2.2426305, latitude: 53.4807593, billboard: billboard},
-//     {id: 9, longitude: -3.7037901999, latitude: 40.4167754, billboard: billboard},
-//     {id: 10, longitude: -1.1037901999, latitude: 42.7167754, billboard: billboard}
-// ];
-
 const pointsOfRadar = [
-    {id: 1, longitude: 0, latitude: 36, billboard: billboard},
-    {id: 2, longitude: 36, latitude: 72, billboard: billboard},
-    {id: 3, longitude: 72, latitude: 108, billboard: billboard},
-    {id: 4, longitude: 108, latitude: 144, billboard: billboard},
-    {id: 5, longitude: 144, latitude: 180, billboard: billboard},
-    {id: 6, longitude: 180, latitude: 216, billboard: billboard},
-    {id: 7, longitude: 216, latitude: 252, billboard: billboard},
-    {id: 8, longitude: 252, latitude: 288, billboard: billboard},
-    {id: 9, longitude: 288, latitude: 324, billboard: billboard},
-    {id: 10, longitude: 324, latitude: 360, billboard: billboard}
+    {id: 1, longitude: 34.7817676, latitude: 32.0852999, billboard: billboard},
+    {id: 2, longitude: -0.1277583, latitude: 51.5073509, billboard: billboard},
+    {id: 3, longitude: 2.3522219, latitude: 48.856614, billboard: billboard},
+    {id: 4, longitude: -23.99, latitude: 40.7327753, billboard: billboard},
+    {id: 5, longitude: 12.4853655, latitude: 41.8899999, billboard: billboard},
+    {id: 6, longitude: 90.6917064, latitude: 35.6894875, billboard: billboard},
+    {id: 7, longitude: 2.1734035, latitude: 41.3850639, billboard: billboard},
+    {id: 8, longitude: -2.2426305, latitude: 53.4807593, billboard: billboard},
+    {id: 9, longitude: -3.7037901999, latitude: 40.4167754, billboard: billboard},
+    {id: 10, longitude: -1.1037901999, latitude: 42.7167754, billboard: billboard}
 ];
 
 server.listen(port, () => {
@@ -54,27 +40,11 @@ server.listen(port, () => {
 
 app.get('/', (req, res) => res.send("Hello"));
 
+let sockets = new Set();
+
 io.on('connection', (socket) => {
     console.log('user connected');
     socket.emit('hello', pointsOfRadar, {});
-
-    // socket.on('message', (msg) => {
-    //     socket.broadcast.emit('new massage', {
-    //         message: msg
-    //     });
-    //     console.log('The message:' + msg);
-    // });
-
-    socket.on('disconnect', () => {
-        socket.broadcast.emit('user disconnect', {});
-    });
-});
-
-let sockets = new Set();
-
-app.use(express.static(__dirname + '/dist'));
-
-io.on('connection', (socket) => {
 
     sockets.add(socket);
     console.log(`Socket ${socket.id} added`);
@@ -84,51 +54,49 @@ io.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
+        socket.broadcast.emit('user disconnect', {});
         console.log(`Deleting socket: ${socket.id}`);
         sockets.delete(socket);
         console.log(`Remaining sockets: ${sockets.size}`);
     });
-
 });
 
-io.on('connection', (socket) => {
-    console.log('point change');
+app.use(express.static(__dirname + '/dist'));
 
-    setInterval(() => {
-        socket.emit('change', createPolyline(), {});
-        console.log('print', createPolyline());
-    }, 10000);
-});
+let i = 0;
+setInterval(() => {
+    i = (i + 1) % 360;
+    createPolyline(i);
+    if (sockets.size > 0) {
+        sockets.forEach(connectedSocket => {
+            sendPointsToClient(connectedSocket);
+        })
+    }
+}, 1000);
 
-function createPolyline() {
+function sendPointsToClient(socket) {
+    // console.log(socket.id);
+    // console.log('point change');
+    socket.emit('change', createPolyline(i));
+    // console.log('print', createPolyline(i));
+}
+
+function createPolyline(i) {
     polyline = pointsOfRadar.map(radar => {
-        // endLatitude = 135 + 10*Math.random();
-        // endLongitude = 132 + 10*Math.random();
-        let angle = Math.PI * 2;
-        endLatitude = endLatitude + Math.cos(angle) * radius;
-        endLongitude = endLongitude + Math.sin(angle) * radius;
 
+        let angle = Math.PI * 2 / (i * 0.0174532925);
+
+        endLongitude = radar.longitude + Math.sin(angle) * radius;
+        endLatitude = radar.latitude + Math.cos(angle) * radius;
         return {
             id: radar.id,
-            positions: [endLatitude, endLongitude, 10000.0, radar.longitude, radar.latitude, 0.0],
+            positions: [endLongitude, endLatitude, 10000.0, radar.longitude, radar.latitude, 0.0],
             width: 5
         }
     });
     // console.log(JSON.stringify(polyline));
+    // console.log(polyline);
     return polyline;
-
-    // pointsOfRadar.forEach(radar => {
-    //     let polyline = {
-    //         positions: Cesium.Cartesian3.fromDegreesArrayHeights([endLatitude, endLongitude, 10000.0, radar[id].longitude, radar[id].latitude, 0.0]),
-    //         width: 5,
-    //         material: new Cesium.PolylineGlowMaterialProperty({
-    //             glowPower: 0.2,
-    //             color: Cesium.Color.YELLOW
-    //         })
-    //     };
-    //     console.log([polyline]);
-    //     return polyline;
-    // })
 }
 
 server.listen(3000);

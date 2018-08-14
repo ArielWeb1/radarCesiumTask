@@ -23,20 +23,18 @@ export class UpdateEffect {
           polyline: {
             positions: Cesium.Cartesian3.fromDegreesArrayHeights(PolylinePoint.positions),
             width: PolylinePoint.width,
-            material : new Cesium.PolylineGlowMaterialProperty({
-              glowPower : 0.2,
-              color : Cesium.Color.YELLOW
-            })
+            material: new Cesium.PolylineGlowMaterialProperty({
+              glowPower: 0.2,
+              color: Cesium.Color.YELLOW
+            }),
           }
         };
-        // console.log(entity.id);
-        // this.viewerService.viewer.entities.add(entity);
         let polylineEntity = this.viewerService.viewer.entities.getOrCreateEntity(entity.id);
         let keys = Object.keys(entity);
-          keys.forEach(function (value) {
-            if(value != 'id')
-              polylineEntity[value] = entity[value];
-          });
+        keys.forEach(function (value) {
+          if (value != 'id')
+            polylineEntity[value] = entity[value];
+        });
       })
     }))
 }
