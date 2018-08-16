@@ -16,6 +16,7 @@ export class PolylinePointsLoaded implements Action {
     this.payload = null;
   }
 }
+
 export class PolylinePointsAdded implements Action {
   public type: string;
   public payload: PolylinePoint[];
@@ -25,6 +26,7 @@ export class PolylinePointsAdded implements Action {
     this.payload = payload;
   };
 }
+
 export class PolylinePointsUpdated implements Action {
   public type: string;
   public payload: PolylinePoint[];

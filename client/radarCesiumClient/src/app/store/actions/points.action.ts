@@ -16,6 +16,7 @@ export class PointsLoaded implements Action {
     this.payload = null;
   }
 }
+
 export class PointsAdded implements Action {
   public type: string;
   public payload: RadarEntity[];
@@ -25,6 +26,7 @@ export class PointsAdded implements Action {
     this.payload = payload;
   };
 }
+
 export class PointsUpdated implements Action {
   public type: string;
   public payload: RadarEntity;

@@ -18,7 +18,7 @@ export class AuthEffect {
     map(action => action.payload),
     tap((entities: RadarEntity[]) => {
       entities.forEach(radarEntity => {
-        const entity:any = {
+        const entity: any = {
           position: Cesium.Cartesian3.fromDegrees(radarEntity.longitude, radarEntity.latitude),
           billboard: {
             image: radarEntity.billboard.image,
